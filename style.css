@@ -1,0 +1,482 @@
+:root {
+  --primary-color: #ffeb3b; /* Jaune vif pour une meilleure lisibilité */
+  --accent-color: #a88fb5; /* Violet doux du ciel */
+  --bg-color: #242424; /* Gris foncé pour les fonds */
+  --text-color: #ffffff; /* Blanc pour le texte principal */
+  --muted-color: #ffffff; /* Gris clair pour les textes secondaires */
+  --card-bg: #2f2f2f; /* Fond des cartes, légèrement plus clair que --bg-color */
+  --border-color: #444444; /* Couleur des bordures */
+  --discord-color: #5865F2; /* Couleur officielle de Discord */
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+  font-family: 'Inter', sans-serif;
+  background: url('img/new-back.jpg') center/cover no-repeat fixed;
+  color: var(--text-color);
+  line-height: 1.6;
+  display: flex;
+  flex-direction: column;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(40, 30, 50, 0.6);
+  z-index: -1;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem 2rem;
+  background: transparent;
+  border-bottom: none;
+  box-shadow: none;
+  position: relative;
+  z-index: 10;
+}
+
+/* Style pour le logo dans la barre de navigation */
+.nav-logo {
+  display: block;
+}
+
+.nav-logo-img {
+  height: 50px;
+  width: auto;
+  filter: drop-shadow(0 0 5px rgba(0, 0, 0, 0.5));
+}
+
+nav {
+  position: relative;
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+  align-items: center;
+}
+
+.nav-item {
+  position: relative;
+  margin-left: 2.5rem;
+}
+
+.nav-link {
+  color: var(--muted-color);
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 1.2rem;
+  transition: color 0.3s ease;
+  position: relative;
+  padding: 0.5rem 0;
+  opacity: 0;
+  animation: slideIn 0.5s ease forwards;
+  animation-delay: calc(var(--delay) * 0.1s);
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+}
+
+.nav-link.login-button {
+  background: var(--discord-color);
+  color: var(--text-color);
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  font-size: 1rem;
+  transition: background 0.3s ease;
+}
+
+.nav-link.login-button:hover {
+  background: var(--accent-color);
+  color: var(--text-color);
+}
+
+.nav-link.login-button::after {
+  display: none; /* Pas de ligne de soulignement pour le bouton de connexion */
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  background: var(--primary-color);
+  bottom: 0;
+  left: 0;
+  transition: width 0.3s ease;
+}
+
+.nav-link:hover::after {
+  width: 100%;
+}
+
+.nav-link:hover {
+  color: var(--primary-color);
+}
+
+.nav-link.active {
+  color: var(--primary-color);
+}
+
+.dropdown {
+  position: relative;
+}
+
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: var(--bg-color);
+  list-style: none;
+  padding: 0.5rem 0;
+  border-radius: 5px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  min-width: 150px;
+  z-index: 10;
+}
+
+.dropdown-menu li {
+  padding: 0.5rem 1rem;
+}
+
+.dropdown-menu li a {
+  color: var(--muted-color);
+  text-decoration: none;
+  font-size: 1rem;
+  transition: color 0.3s ease;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+}
+
+.dropdown-menu li a:hover {
+  color: var(--primary-color);
+}
+
+.dropdown:hover .dropdown-menu {
+  display: block;
+  animation: fadeInDropdown 0.3s ease;
+}
+
+@keyframes fadeInDropdown {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+    -webkit-transform: translateY(10px);
+    -moz-transform: translateY(10px);
+    -ms-transform: translateY(10px);
+    -o-transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Styles pour la section Forum */
+.forum {
+  flex-grow: 1;
+  padding: 3rem 2rem;
+  text-align: center;
+  color: var(--text-color);
+}
+
+.forum-header {
+  margin-bottom: 2.5rem;
+}
+
+.forum-header h1 {
+  font-size: 2.8rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+}
+
+.forum-header p {
+  font-size: 1.2rem;
+  color: var(--muted-color);
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+  margin-bottom: 1.5rem;
+}
+
+.forum-actions {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.search-bar {
+  display: flex;
+  align-items: center;
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 5px;
+  padding: 0.5rem;
+  max-width: 400px;
+  width: 100%;
+}
+
+.search-input {
+  flex-grow: 1;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: var(--text-color);
+  font-size: 1rem;
+  padding: 0.5rem;
+}
+
+.search-input::placeholder {
+  color: var(--muted-color);
+}
+
+.search-button {
+  background: var(--primary-color);
+  color: var(--bg-color);
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.search-button:hover {
+  background: var(--accent-color);
+}
+
+.create-topic-button {
+  background: var(--primary-color);
+  color: var(--bg-color);
+  padding: 0.75rem 1.5rem;
+  border-radius: 5px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1rem;
+  transition: background 0.3s ease;
+}
+
+.create-topic-button:hover {
+  background: var(--accent-color);
+}
+
+.forum-categories {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 1.5rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.category-card {
+  display: flex;
+  align-items: center;
+  background: var(--card-bg);
+  padding: 1.5rem;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.category-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.category-icon {
+  width: 40px;
+  height: 40px;
+  margin-right: 1rem;
+  border-radius: 50%;
+  background: var(--primary-color);
+  flex-shrink: 0;
+}
+
+/* Styles pour simuler des icônes (placeholders) */
+.announcements-icon {
+  background: var(--primary-color);
+}
+
+.general-icon {
+  background: var(--accent-color);
+}
+
+.support-icon {
+  background: #43b581; /* Vert Discord pour le support */
+}
+
+.events-icon {
+  background: #ff6f61; /* Corail pour les événements */
+}
+
+.category-content {
+  flex-grow: 1;
+  text-align: left;
+}
+
+.category-content h2 {
+  font-size: 1.4rem;
+  font-weight: 600;
+  margin-bottom: 0.3rem;
+  color: var(--text-color);
+}
+
+.category-content p {
+  font-size: 0.95rem;
+  color: var(--muted-color);
+  margin-bottom: 0.5rem;
+}
+
+.category-meta {
+  font-size: 0.85rem;
+  color: var(--muted-color);
+  margin-bottom: 0.75rem;
+}
+
+.category-link {
+  display: inline-block;
+  color: var(--primary-color);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.9rem;
+  transition: color 0.3s ease;
+}
+
+.category-link:hover {
+  color: var(--accent-color);
+}
+
+.hero {
+  text-align: center;
+  padding: 4rem 2rem;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-logo {
+  height: 200px;
+  margin-bottom: 3rem;
+  opacity: 0;
+  animation: fadeIn 1s ease forwards;
+  filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.5));
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}
+
+/* Ajustement de l'invitation Discord dans la section .hero */
+.discord-invite {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: rgb(54, 54, 54);
+  padding: 1.2rem;
+  width: 400px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  opacity: 0;
+  animation: fadeIn 1s ease forwards;
+  animation-delay: 0.3s;
+}
+
+.discord-invite .invite-text {
+  color: var(--muted-color);
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+}
+
+.discord-invite .content {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.discord-invite img {
+  width: 75px;
+  height: 75px;
+  border-radius: 8px;
+}
+
+.discord-info {
+  flex-grow: 1;
+  margin-left: 1rem;
+  text-align: left;
+}
+
+.discord-info h3 {
+  color: var(--text-color);
+  font-size: 1.1rem;
+  font-weight: 500;
+  margin: 0;
+}
+
+.discord-info p {
+  color: var(--muted-color);
+  font-size: 0.8rem;
+  margin-top: 0.2rem;
+}
+
+.discord-join {
+  background: #43b581;
+  color: var(--text-color);
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.9rem;
+  transition: background 0.3s ease;
+}
+
+.discord-join:hover {
+  background: #3a9e6b;
+}
+
+footer {
+  text-align: center;
+  padding: 2rem;
+  background: var(--bg-color);
+  color: var(--muted-color);
+  font-size: 0.9rem;
+  box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.2);
+  margin-top: auto;
+}
+
+/* Animations simplifiées */
+.fade-in {
+  opacity: 0;
+  animation: fadeIn 1s ease-out forwards;
+}

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SouthCity RP - Forum</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Pricedown&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" type="image/png" href="img/southlogo.png">
+</head>
+<body>
+  <header class="header-banner">
+    <nav>
+      <ul class="nav-links">
+        <li class="nav-item dropdown">
+          <a href="forum.html" class="nav-link">Forum</a>
+        </li>
+        <li class="nav-item">
+          <a href="index.html" class="nav-link">Accueil</a>
+        </li>
+        <li class="nav-item">
+          <a href="index.html#rules" class="nav-link">Règlements</a>
+        </li>
+        <li class="nav-item">
+          <a href="index.html#boutique" class="nav-link">Boutique</a>
+        </li>
+        <!-- Nouvel onglet pour la connexion Discord -->
+        <li class="nav-item">
+          <a href="https://discord.com/oauth2/authorize?client_id=YOUR_CLIENT_ID&redirect_uri=YOUR_REDIRECT_URI&response_type=code&scope=identify" class="nav-link login-button">Connexion</a>
+        </li>
+      </ul>
+    </nav>
+  </header>
+
+  <div class="forum">
+    <div class="forum-header">
+      <h1>Forum de SouthCity RP</h1>
+      <p>Participez à des discussions, partagez vos idées et connectez-vous avec la communauté.</p>
+      <div class="forum-actions">
+        <div class="search-bar">
+          <input type="text" placeholder="Rechercher un sujet..." class="search-input">
+          <button class="search-button">Rechercher</button>
+        </div>
+        <a href="#" class="create-topic-button">Créer un sujet</a>
+      </div>
+    </div>
+    <div class="forum-categories">
+      <div class="category-card">
+        <div class="category-icon announcements-icon"></div>
+        <div class="category-content">
+          <h2>Annonces</h2>
+          <p>Les dernières nouvelles et annonces officielles de SouthCity RP.</p>
+          <div class="category-meta">
+            <span>50 sujets</span> • <span>120 messages</span>
+          </div>
+          <a href="#" class="category-link">Voir les discussions</a>
+        </div>
+      </div>
+      <div class="category-card">
+        <div class="category-icon general-icon"></div>
+        <div class="category-content">
+          <h2>Discussions Générales</h2>
+          <p>Parlez de tout et de rien avec les autres membres de la communauté.</p>
+          <div class="category-meta">
+            <span>200 sujets</span> • <span>1.5k messages</span>
+          </div>
+          <a href="#" class="category-link">Voir les discussions</a>
+        </div>
+      </div>
+      <div class="category-card">
+        <div class="category-icon support-icon"></div>
+        <div class="category-content">
+          <h2>Support Technique</h2>
+          <p>Besoin d'aide ? Posez vos questions ici.</p>
+          <div class="category-meta">
+            <span>80 sujets</span> • <span>300 messages</span>
+          </div>
+          <a href="#" class="category-link">Voir les discussions</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="footer-banner">
+    <p>© 2025 SouthCity RP - Tous droits réservés.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
